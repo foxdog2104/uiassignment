@@ -1,7 +1,20 @@
 import React from 'react';
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, Button, Image, ScrollView, StyleSheet, Text, View } from "react-native";
 
-
+const myAlert = () => {
+  Alert.alert(
+    "MyAlert",
+    "Alert button pressed",
+    [
+      {
+        text: "Cancel"
+      },
+      {
+        text: "Ok"
+      }
+    ]
+  )
+}
 export default function Index() {
   return (
     <View
@@ -113,8 +126,9 @@ export default function Index() {
               <Text style={myStyles.postHeaderText}>☁Sayu❄️<Text style={myStyles.postHeaderHandle}>@sayuupi.bsky.social</Text></Text>
             </View>
             <View> {/**Body */}
-              <Text style={myStyles.postBody}>Press me!!</Text>
-               
+              <View style={myStyles.alertButton}>
+                <Button title={"Click me!!"} onPress={myAlert}/>
+              </View>
             </View> 
             {/**Footer */}
             <View style={myStyles.postFooter}>
@@ -221,7 +235,10 @@ const myStyles = StyleSheet.create({
   footerButton: {
     fontSize:36
   },
-  alarmButton: {
-
+  alertButton: {
+    backgroundColor: 'lightblue',
+    borderRadius: 15,
+    borderColor: 'navy',
+    borderWidth: 2
   }
 })
